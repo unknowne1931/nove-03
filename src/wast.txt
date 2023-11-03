@@ -1,0 +1,55 @@
+{star.map((user, i) =>{
+        if(gifno > user.dataLength){
+          return(
+            <div key={i}>
+              <center>
+                <div>
+                  {valid.star === "1" && 
+                  <div className='prz-str-cnt-01'>
+                    <h2>You Got {valid.star} <span>star</span></h2>
+                    <span className='prz-glo-str'><FontAwesomeIcon className='glow-5-1' icon={faStar} /></span>
+                  </div>}
+                  {valid.star === "2" && 
+                  <div className='prz-str-cnt-01'>
+                    <h2>You Got {valid.star} <span>stars</span></h2>
+                    <span className='prz-glo-str'><FontAwesomeIcon className='glow-5-1' icon={faStar} /><FontAwesomeIcon className='glow-5-2' icon={faStar} /></span>
+                  </div>}
+                  {valid.star === "3" && 
+                  <div className='prz-str-cnt-01'>
+                    <h2>You Got {valid.star} <span>stars</span></h2>
+                    <span className='prz-glo-str'><FontAwesomeIcon className='glow-5-1' icon={faStar} /><FontAwesomeIcon className='glow-5-2' icon={faStar} /><FontAwesomeIcon className='glow-5-3' icon={faStar} /></span>
+                  </div>}
+                  {valid.star === "4" && 
+                  <div className='prz-str-cnt-01'>
+                    <h2>You Got {valid.star} <span>stars</span></h2>
+                    <span className='prz-glo-str'><FontAwesomeIcon className='glow-5-1' icon={faStar} /><FontAwesomeIcon className='glow-5-2' icon={faStar} /><FontAwesomeIcon className='glow-5-3' icon={faStar} /><FontAwesomeIcon className='glow-5-4' icon={faStar} /></span>
+                  </div>}
+                  {valid.star === "5" && 
+                  <div className='prz-str-cnt-01'>
+                    <h2>You Got {valid.star} <span>stars</span></h2>
+                    <span className='prz-glo-str'><FontAwesomeIcon className='glow-5-1' icon={faStar} /><FontAwesomeIcon className='glow-5-2' icon={faStar} /><FontAwesomeIcon className='glow-5-3' icon={faStar} /><FontAwesomeIcon className='glow-5-4' icon={faStar} /><FontAwesomeIcon className='glow-5-5' icon={faStar} /></span>
+                  </div>}
+                  
+                </div>
+              </center>
+            </div>
+          )
+        }
+      })}
+
+
+
+
+
+      app.get('/winnn/data/:email', async (req, res) => {
+  try {
+    const email = req.params.email;
+    const user = await WinnnModel.find({ email });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.json(user);
+  } catch (error) {
+    res.status(205).json({ message: 'Internal server error' });
+  }
+});
